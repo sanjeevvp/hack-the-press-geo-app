@@ -2,14 +2,14 @@ import './App.css';
 
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Explore';
+import Explore from './pages/Explore';
 
-function App() {
+const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Explore />} />
     </Routes>
   );
-}
+};
 
 export default App;
