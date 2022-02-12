@@ -1,0 +1,51 @@
+.PostHeaderContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.UpperContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.LeftContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.TitleContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.LocationContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.RightContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.IconContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.BelowContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.NameContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.ExpandIconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
