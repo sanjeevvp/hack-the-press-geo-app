@@ -1,6 +1,5 @@
 import { Button, Chip, TextField } from '@mui/material';
 import {
-  ChevronLeft,
   Domain,
   Event,
   LunchDining,
@@ -10,6 +9,7 @@ import {
 import React, { useState } from 'react';
 
 import { publishPostWithGeoData } from '../api';
+import Header from '../components/common/Header';
 
 function NewPost() {
   const [title, setTitle] = useState('');
@@ -45,24 +45,7 @@ function NewPost() {
   };
   return (
     <div style={{ padding: '15px' }}>
-      <div
-        style={{ display: 'inline-flex', alignItems: 'center' }}
-        onClick={() => history.back()}
-      >
-        <div>
-          <ChevronLeft style={{}} />{' '}
-        </div>
-        <span
-          style={{
-            color: 'grey',
-            marginLeft: '10px',
-            marginBottom: '5px',
-            textDecoration: 'underline',
-          }}
-        >
-          Back
-        </span>
-      </div>
+      <Header />
       <div>
         <h1 style={{ marginLeft: '20px' }}>Post something</h1>
       </div>

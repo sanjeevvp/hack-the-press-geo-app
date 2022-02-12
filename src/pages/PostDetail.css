@@ -1,0 +1,13 @@
+.PostDetailContainer {
+    height: 100vh;
+}
+
+.ImageContainer {
+    height: 209px;
+    background-color: #dddddd;
+}
+
+.PostDetailContentContainer {
+    height: 100%;
+    background: radial-gradient(154.3% 180.91% at -31.03% 204.3%, #49E8DE 0%, rgba(75, 232, 222, 0.989583) 0.01%, rgba(249, 249, 249, 0) 100%), #FFFFFF;
+}

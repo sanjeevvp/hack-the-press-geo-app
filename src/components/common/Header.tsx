@@ -1,6 +1,5 @@
 import React from 'react';
 import './Header.css';
-import TuneIcon from '@mui/icons-material/Tune';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 
 const Header = () => {
@@ -8,7 +7,7 @@ const Header = () => {
     <header className="PostDetailHeaderContainer">
       <div className="BackContainer" onClick={() => history.back()}>
         <ArrowBackIosIcon />
-        back
+        <span>back</span>
       </div>
     </header>
   );
