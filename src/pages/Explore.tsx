@@ -9,13 +9,11 @@ import Post from '../components/explore/Post';
 import { useNavigate } from 'react-router-dom';
 import { IPost } from '../types';
 import { getPosts } from '../api';
+import ButtonFooter from '../components/common/ButtonFooter';
 
 const Explore = () => {
   const [posts, setPosts] = useState<IPost[] | null>(null);
   const [hasError, setHasError] = useState<boolean>(false);
-
-  const navigate = useNavigate();
-  const openNewPost = () => navigate('/post');
 
   const loadPosts = async () => {
     await getPosts()
@@ -36,9 +34,7 @@ const Explore = () => {
       {posts?.map((post: IPost, index: number) => (
         <Post post={post} key={index} />
       ))}
-      <Fab color="primary" aria-label="add" onClick={openNewPost}>
-        <AddIcon />
-      </Fab>
+      <ButtonFooter />
     </div>
   );
 };

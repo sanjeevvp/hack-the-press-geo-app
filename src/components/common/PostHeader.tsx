@@ -16,11 +16,11 @@ const PostHeader: React.FC<{ post: IPost }> = ({ post }) => {
         <div className="LeftContainer">
           <div className="TitleContainer">
             <EventIcon />
-            <h1>{post.title}</h1>
+            <h1>{post?.title}</h1>
           </div>
           <div className="LocationContainer">
             <LocationOnIcon />
-            <p>{post.locationName}</p>
+            <p>{post?.locationName}</p>
           </div>
         </div>
         <div className="RightContainer">
@@ -29,14 +29,14 @@ const PostHeader: React.FC<{ post: IPost }> = ({ post }) => {
             <MoreHorizIcon />
           </div>
           <div className="ChipContainer">
-            <Chip avatar={<Avatar>M</Avatar>} label={post.postingType} />
+            <Chip avatar={<Avatar>M</Avatar>} label={post?.postingType} />
           </div>
         </div>
       </div>
       <div className="BelowContainer">
         <PersonIcon />
         <div className="NameContainer">
-          <p>{post.name}</p>
+          <p>{post?.name}</p>
           <p>1 hr ago</p>
         </div>
       </div>

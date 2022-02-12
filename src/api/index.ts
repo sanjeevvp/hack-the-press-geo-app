@@ -4,7 +4,7 @@ import { IPost } from '../types';
 
 export async function getPosts() {
   const response = await axios.get(
-    'https://3e3a-86-130-236-97.ngrok.io/api/posts'
+    'https://60ba-86-130-236-97.ngrok.io/api/posts'
   );
   console.log(response.data);
   return response.data;
@@ -12,19 +12,18 @@ export async function getPosts() {
 
 export async function getPost(postId: string) {
   const response = await axios.get(
-    `https://3e3a-86-130-236-97.ngrok.io/api/posts/${postId}`
+    `https://60ba-86-130-236-97.ngrok.io/api/posts/${postId}`
   );
   console.log(response);
   return response.data;
 }
 
 export async function publishPostWithGeoData(data: IPost) {
-  navigator.geolocation.getCurrentPosition((coord) => {
+  navigator.geolocation.getCurrentPosition(async (coord) => {
     data.lat = coord.coords.latitude as any;
     data.long = coord.coords.longitude as any;
+    data = data as IPost;
+    console.log(data);
+    await axios.post('https://60ba-86-130-236-97.ngrok.io/api/posts', data);
   });
-
-  data = data as IPost;
-  console.log(data);
-  await axios.post('/posts', data);
 }

@@ -6,11 +6,10 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 const Header = () => {
   return (
     <header className="PostDetailHeaderContainer">
-      <div className="BackContainer">
+      <div className="BackContainer" onClick={() => history.back()}>
         <ArrowBackIosIcon />
         back
       </div>
-      <TuneIcon />
     </header>
   );
 };
