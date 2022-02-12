@@ -1,5 +1,7 @@
 import React from 'react';
 import './Post.css';
+import { IPost } from '../../types';
+
 import EventIcon from '@mui/icons-material/Event';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PersonIcon from '@mui/icons-material/Person';
@@ -8,7 +10,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Avatar, Chip } from '@mui/material';
 
-const Post = () => {
+const Post: React.FC<{ post: IPost }> = ({ post }) => {
   return (
     <article>
       <header className="PostHeaderContainer">
@@ -16,11 +18,11 @@ const Post = () => {
           <div className="LeftContainer">
             <div className="TitleContainer">
               <EventIcon />
-              <h1>Hackathon</h1>
+              <h1>{post.title}</h1>
             </div>
             <div className="LocationContainer">
               <LocationOnIcon />
-              <p>Newspeak House</p>
+              <p>{post.locationName}</p>
             </div>
           </div>
           <div className="RightContainer">
@@ -29,25 +31,20 @@ const Post = () => {
               <MoreHorizIcon />
             </div>
             <div className="ChipContainer">
-              <Chip avatar={<Avatar>M</Avatar>} label="Avatar" />
+              <Chip avatar={<Avatar>M</Avatar>} label={post.postingType} />
             </div>
           </div>
         </div>
         <div className="BelowContainer">
           <PersonIcon />
           <div className="NameContainer">
-            <p>Min Nam</p>
+            <p>{post.name}</p>
             <p>1 hr ago</p>
           </div>
         </div>
       </header>
       <div>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Exercitationem quam corporis eaque eveniet eos, nihil error distinctio
-          saepe. Repudiandae accusantium consectetur distinctio ut dignissimos
-          exercitationem reiciendis nihil, incidunt sapiente debitis
-        </p>
+        <p>{post.text}</p>
       </div>
       <div className="ExpandIconContainer">
         <ExpandMoreIcon />

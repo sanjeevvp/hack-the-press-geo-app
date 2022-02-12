@@ -36,7 +36,8 @@ function NewPost() {
     publishPostWithGeoData({
       name: 'Sanjeev',
       title,
-      place: 'Newspeak House',
+      locationName: 'Newspeak House',
+      postingType: 'General',
       tags,
       text,
     });

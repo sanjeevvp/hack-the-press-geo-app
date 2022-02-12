@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
+import { IPost } from '../types';
 
-export interface IPost {
-  name: string;
-  title: string;
-  text: string;
-  place: string;
-  tags: string[];
-  lat?: string;
-  long?: string;
+export async function getPosts() {
+  const response = await axios.get(
+    'https://run.mocky.io/v3/4083c0eb-fdd6-49ff-a160-e8251dbbe492'
+  );
+  return response.data;
 }
+
 export async function publishPostWithGeoData(data: IPost) {
   navigator.geolocation.getCurrentPosition((coord) => {
     data.lat = coord.coords.latitude as any;
