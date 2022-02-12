@@ -4,8 +4,17 @@ import { IPost } from '../types';
 
 export async function getPosts() {
   const response = await axios.get(
-    'https://run.mocky.io/v3/4083c0eb-fdd6-49ff-a160-e8251dbbe492'
+    'https://3e3a-86-130-236-97.ngrok.io/api/posts'
   );
+  console.log(response.data);
+  return response.data;
+}
+
+export async function getPost(postId: string) {
+  const response = await axios.get(
+    `https://3e3a-86-130-236-97.ngrok.io/api/posts/${postId}`
+  );
+  console.log(response);
   return response.data;
 }
 

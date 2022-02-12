@@ -9,40 +9,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ShareIcon from '@mui/icons-material/Share';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Avatar, Chip } from '@mui/material';
+import PostHeader from '../common/PostHeader';
 
 const Post: React.FC<{ post: IPost }> = ({ post }) => {
   return (
     <article>
-      <header className="PostHeaderContainer">
-        <div className="UpperContainer">
-          <div className="LeftContainer">
-            <div className="TitleContainer">
-              <EventIcon />
-              <h1>{post.title}</h1>
-            </div>
-            <div className="LocationContainer">
-              <LocationOnIcon />
-              <p>{post.locationName}</p>
-            </div>
-          </div>
-          <div className="RightContainer">
-            <div className="IconContainer">
-              <ShareIcon />
-              <MoreHorizIcon />
-            </div>
-            <div className="ChipContainer">
-              <Chip avatar={<Avatar>M</Avatar>} label={post.postingType} />
-            </div>
-          </div>
-        </div>
-        <div className="BelowContainer">
-          <PersonIcon />
-          <div className="NameContainer">
-            <p>{post.name}</p>
-            <p>1 hr ago</p>
-          </div>
-        </div>
-      </header>
+      <PostHeader post={post} />
       <div>
         <p>{post.text}</p>
       </div>

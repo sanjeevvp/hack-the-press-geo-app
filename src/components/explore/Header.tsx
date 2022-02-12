@@ -4,7 +4,7 @@ import TuneIcon from '@mui/icons-material/Tune';
 
 const Header = () => {
   return (
-    <header className="HeaderContainer">
+    <header className="ExploreHeaderContainer">
       <h1>Shoreditch, London</h1>
       <TuneIcon />
     </header>
