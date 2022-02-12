@@ -1,13 +1,9 @@
-import React from 'react';
 import './App.css';
 
-function App() {
+import React from 'react';
 
-  return (
-    <div className="App">
-      Hello WIP group!
-    </div>
-  );
+function App() {
+  return <div className="App">Hello WIP group!</div>;
 }
 
 export default App;
