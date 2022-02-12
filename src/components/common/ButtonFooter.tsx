@@ -15,19 +15,19 @@ const ButtonFooter = () => {
   return (
     <footer className="ButtonFooterContainer">
       <div className="HomeButtonContainer">
-        <Fab color="primary" aria-label="home" onClick={openHome}>
-          <HomeIcon />
-        </Fab>
+        <HomeIcon className="HomeButton" onClick={openHome} />
       </div>
       <div className="PlusButtonContainer">
-        <Fab color="primary" aria-label="add" onClick={openNewPost}>
+        <Fab
+          className="AddIconContainer"
+          aria-label="add"
+          onClick={openNewPost}
+        >
           <AddIcon />
         </Fab>
       </div>
       <div className="MapButtonContainer">
-        <Fab color="primary" aria-label="map">
-          <MapIcon />
-        </Fab>
+        <MapIcon className="MapButton" />
       </div>
     </footer>
   );

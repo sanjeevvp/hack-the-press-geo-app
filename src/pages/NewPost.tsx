@@ -34,6 +34,7 @@ function NewPost() {
     }
 
     publishPostWithGeoData({
+      id: 'id' + Math.random() * 100,
       name: 'Sanjeev',
       title,
       locationName: 'Newspeak House',

@@ -29,7 +29,7 @@ const Explore = () => {
   }, []);
 
   return (
-    <div>
+    <div className="ExploreContainer">
       <Header />
       {posts?.map((post: IPost, index: number) => (
         <Post post={post} key={index} />
