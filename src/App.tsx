@@ -1,13 +1,16 @@
 import './App.css';
 
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
+
 import Explore from './pages/Explore';
+import NewPost from './pages/NewPost';
+import React from 'react';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Explore />} />
+      <Route path="/post" element={<NewPost />} />
     </Routes>
   );
 };
