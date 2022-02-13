@@ -11,8 +11,11 @@ import {
   ThemeProvider,
   createTheme,
 } from '@mui/material';
-import { Domain, Event, LunchDining, Place } from '@mui/icons-material';
+import { Place } from '@mui/icons-material';
 import { getGeocoding, publishPostWithGeoData } from '../api';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import DateRangeIcon from '@mui/icons-material/DateRange';
+import ArticleIcon from '@mui/icons-material/Article';
 
 import Header from '../components/common/Header';
 import React from 'react';
@@ -158,7 +161,7 @@ function NewPost() {
         </div>
         <div style={{ marginLeft: '20px' }}>
           <Chip
-            icon={<Domain />}
+            icon={<ArticleIcon />}
             clickable
             size="small"
             color="info"
@@ -176,7 +179,7 @@ function NewPost() {
             }}
           />
           <Chip
-            icon={<Event />}
+            icon={<NewspaperIcon />}
             clickable
             size="small"
             color="secondary"
@@ -194,7 +197,7 @@ function NewPost() {
             }}
           />
           <Chip
-            icon={<LunchDining />}
+            icon={<DateRangeIcon />}
             size="small"
             color="success"
             label="Event"
