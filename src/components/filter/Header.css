@@ -1,6 +1,10 @@
-.ExploreHeaderContainer {
+.FilterHeaderContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+}
+
+.FilterHeaderContainer h1 {
+    font-family: Tiempos;
 }
