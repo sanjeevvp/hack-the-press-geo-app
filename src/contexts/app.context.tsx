@@ -1,11 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import useLocalStorage from 'react-use-localstorage';
+import { FilterData } from '../types';
 
 export const AppContext = React.createContext({
   name: '',
   radius: '50',
   categories: [] as string[],
   tags: [] as string[],
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  update: (data: Partial<FilterData>) => {},
 });
 
 const AppProvider: React.FC = ({ children }) => {
@@ -31,7 +35,15 @@ const AppProvider: React.FC = ({ children }) => {
     }
   }, [rawData]);
 
-  return <AppContext.Provider value={data}>{children}</AppContext.Provider>;
+  const update = (data: Partial<FilterData>) => {
+    console.log(data);
+  };
+
+  return (
+    <AppContext.Provider value={{ ...data, update }}>
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 export const useAppContext = () => React.useContext(AppContext);

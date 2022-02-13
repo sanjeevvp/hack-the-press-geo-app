@@ -9,3 +9,10 @@ export interface IPost {
   lat?: string;
   long?: string;
 }
+
+export interface FilterData {
+  name: string;
+  radius: string;
+  categories: string[];
+  tags: string[];
+}

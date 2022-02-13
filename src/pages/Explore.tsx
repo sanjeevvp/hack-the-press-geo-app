@@ -7,13 +7,16 @@ import Header from '../components/explore/Header';
 import { IPost } from '../types';
 import Post from '../components/explore/Post';
 import { getPosts } from '../api';
+import { useAppContext } from '../contexts/app.context';
 
 const Explore = () => {
   const [posts, setPosts] = useState<IPost[] | null>(null);
   const [hasError, setHasError] = useState<boolean>(false);
 
+  const filters = useAppContext();
+
   const loadPosts = async () => {
-    await getPosts()
+    await getPosts(filters)
       .then((response) => setPosts(response))
       .catch((error) => {
         console.log(error);
