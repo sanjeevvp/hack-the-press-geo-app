@@ -53,7 +53,7 @@ const Map = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {posts?.map((post: IPost, index: number) => (
-          <Marker position={[post.lat, post.long]} key={index}>
+          <Marker position={[post.lat as any, post.long as any]} key={index}>
             <Popup>{post.locationName}</Popup>
           </Marker>
         ))}
