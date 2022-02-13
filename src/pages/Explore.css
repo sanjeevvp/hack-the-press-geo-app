@@ -1,7 +1,15 @@
 .ExploreContainer {
     min-height: 100vh;
-    padding: 93px 24px;
+    padding: 93px 0;
+    margin-bottom: -74px; 
 }
 
+.ExploreContainer:after {
+    content: "";
+    display: block;
+  }
+
 .PostListContainer {
+    height: 80vh;
+    overflow: auto;
 }
