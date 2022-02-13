@@ -5,7 +5,7 @@ import { FilterData } from '../types';
 
 export const AppContext = React.createContext({
   name: '',
-  radius: '50',
+  radius: '1500',
   categories: [] as string[],
   tags: [] as string[],
   // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -16,7 +16,7 @@ const AppProvider: React.FC = ({ children }) => {
   const [rawData, setRawData] = useLocalStorage('terrace', '');
   const [data, setData] = React.useState({
     name: '',
-    radius: '50',
+    radius: '1500',
     categories: [] as string[],
     tags: [] as string[],
   });
