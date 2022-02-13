@@ -7,7 +7,17 @@
     background-color: #dddddd;
 }
 
+.PostDetailImage {
+    width: 100%;
+    height: 209px;
+}
+
 .PostDetailContentContainer {
     height: 100%;
+    padding: 24px;
     background: radial-gradient(154.3% 180.91% at -31.03% 204.3%, #49E8DE 0%, rgba(75, 232, 222, 0.989583) 0.01%, rgba(249, 249, 249, 0) 100%), #FFFFFF;
+}
+
+.PostDetailTextContainer {
+    margin-top: 24px;
 }

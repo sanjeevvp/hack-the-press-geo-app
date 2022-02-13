@@ -2,11 +2,21 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20px 10px 10px 10px;
+  padding: 25px;
   color: #555555;
 }
 
 .BackContainer {
   display: flex;
   align-items: center;
+}
+
+.BackContainer svg {
+  width: 6px;
+  height: 11px;
+}
+
+.BackContainer span {
+  font-size: 16px;
+  margin-left: 9.5px;
 }

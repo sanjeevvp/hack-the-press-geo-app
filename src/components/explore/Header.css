@@ -4,3 +4,7 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.ExploreHeaderContainer h1 {
+    font-family: Tiempos;
+}

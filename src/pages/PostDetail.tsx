@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './PostDetail.css';
+import PostDetailImage from '../images/PostDetail.png';
 
 import Header from '../components/common/Header';
 
@@ -32,10 +33,12 @@ const PostDetail = () => {
   return (
     <div className="PostDetailContainer">
       <Header />
-      <div className="ImageContainer">Image Area</div>
+      <div className="ImageContainer">
+        <img className="PostDetailImage" src={PostDetailImage} />
+      </div>
       <div className="PostDetailContentContainer">
         <PostHeader post={post as IPost} />
-        <div>{post?.text}</div>
+        <div className="PostDetailTextContainer">{post?.text}</div>
       </div>
       <ButtonFooter />
     </div>
