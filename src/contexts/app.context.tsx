@@ -28,15 +28,16 @@ const AppProvider: React.FC = ({ children }) => {
   }, [data]);
 
   React.useEffect(() => {
+    // only load at start
     if (rawData) {
       // parse raw data and set data
       const parsed = JSON.parse(rawData);
       setData(parsed);
     }
-  }, [rawData]);
+  }, []);
 
   const update = (data: Partial<FilterData>) => {
-    console.log(data);
+    setData((d) => ({ ...d, ...data }));
   };
 
   return (

@@ -29,7 +29,7 @@ export async function getPosts(filters: FilterData) {
     .map(([key, value]) => `${key}=${value}`)
     .join('&');
 
-  console.log({ queryString });
+  console.log({ query, queryString });
 
   const response = await axios.get(`${BASE_URL}/api/posts?${queryString}`);
   console.log(response.data);

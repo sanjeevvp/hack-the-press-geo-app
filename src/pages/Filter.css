@@ -1,26 +1,34 @@
 .FilterContainer {
-    min-height: 100vh;
-    padding: 93px 24px;
+  min-height: 100vh;
+  padding: 93px 24px;
 }
 
 .RadiusSlider {
-
 }
 
 .FilterFooter {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 50px;
-    left: 0;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  width: 100%;
 }
 
 .SaveButton {
-    background: #EF940B;
-    color: #ffffff;
-    width: 295px;
-    height: 47px;
-    border: none;
-    border-radius: 65px;
+  background: #ef940b;
+  color: #ffffff;
+  width: 295px;
+  height: 47px;
+  border: none;
+  border-radius: 65px;
+}
+
+.FilterRadiusContainer {
+  justify-content: center;
+}
+
+.FilterRadiusTextContainer {
+  display: flex;
+  align-items: center;
 }
