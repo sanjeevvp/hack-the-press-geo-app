@@ -20,4 +20,6 @@
 
 .PostDetailTextContainer {
     margin-top: 24px;
+    height: 50vh;
+    overflow: auto;
 }
