@@ -1,0 +1,28 @@
+.new-post-title:focus-visible {
+  outline: none;
+}
+
+.new-post-title {
+  border: none;
+  overflow: visible;
+}
+
+.location-open-select {
+  font-size: 24px;
+  font-family: DINPro;
+}
+
+.location-open-select div {
+  font-size: 24px;
+  font-family: DINPro;
+  font-weight: 900;
+  padding-left: 5px;
+  padding-top: 20px;
+}
+.location-open-select fieldset {
+  border: none;
+}
+
+.location-open-select svg {
+  display: none;
+}

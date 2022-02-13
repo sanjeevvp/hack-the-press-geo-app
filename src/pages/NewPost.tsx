@@ -1,24 +1,33 @@
+import './NewPost.css';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Button,
   Chip,
+  FormControl,
+  MenuItem,
+  Select,
   TextField,
   ThemeProvider,
   createTheme,
 } from '@mui/material';
 import { Domain, Event, LunchDining, Place } from '@mui/icons-material';
-import React, { useState } from 'react';
 import { getGeocoding, publishPostWithGeoData } from '../api';
 
 import Header from '../components/common/Header';
+import React from 'react';
+import { useState } from 'react';
 
 function NewPost() {
   const [title, setTitle] = useState('Post something here ...');
-  const [editing, setEditing] = useState(false);
   const [location, setLocation] = useState('Suggested location ...');
   const [locations, setLocations] = useState([] as string[]);
+  const [modalView, setModalView] = useState(false);
   const [type, setType] = useState('Event');
   const [text, setText] = useState('');
+  const [wellbeing, setWellbeing] = useState(false);
+  const [music, setMusic] = useState(false);
+  const [food, setFood] = useState(false);
   const theme = createTheme({
     palette: {
       primary: {
@@ -57,35 +66,28 @@ function NewPost() {
     getGeocoding().then((data: any) => {
       console.log(data);
       setLocation(data[0]);
-      setLocations(data);
+      setLocations(data.slice(0, 6));
     });
   }
   return (
     <ThemeProvider theme={theme}>
       <div style={{ padding: '15px' }}>
         <Header />
-        <div style={{ marginLeft: '20px' }}>
-          <h2
+        <div style={{ marginLeft: '20px', marginTop: '20px' }}>
+          <input
             contentEditable="true"
             suppressContentEditableWarning={true}
+            className="new-post-title"
             style={{
+              fontFamily: 'Tiempos',
               color: title.startsWith('Post') ? '#C6C6C6' : 'black',
-              display: editing ? 'none' : 'block',
               fontSize: '24px',
             }}
-            onClick={() => setEditing(true)}
-          >
-            {title}
-          </h2>
-          <TextField
-            id="outlined-basic"
-            fullWidth
-            label=""
             value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            style={{ display: editing ? 'block' : 'none' }}
-            variant="outlined"
-            onMouseLeave={() => setEditing(false)}
+            onChange={(e) => {
+              setTitle(e.target.value);
+            }}
+            onClick={() => setTitle('')}
           />
         </div>
         <div
@@ -104,15 +106,33 @@ function NewPost() {
             <div>
               <Place />
             </div>
-            <p
+            <FormControl sx={{ m: 1, minWidth: 120 }}>
+              <Select
+                fullWidth
+                className="location-open-select"
+                open={modalView}
+                onClose={() => setModalView(false)}
+                onOpen={() => setModalView(false)}
+                value={location}
+                label=""
+                onChange={(e) => setLocation(e.target.value)}
+              >
+                {locations?.map((location: string, index: number) => (
+                  <MenuItem value={location} key={index}>
+                    {location}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            {/* <input
+              type={'select'}
               style={{
                 marginLeft: '10px',
                 fontWeight: '700',
-                fontSize: '24px',
+                fontSize: '22px',
               }}
-            >
-              {location}
-            </p>
+              value={location}
+            /> */}
           </div>
           <div
             style={{
@@ -121,6 +141,7 @@ function NewPost() {
               position: 'absolute',
               right: '35px',
             }}
+            onClick={() => setModalView(true)}
           >
             Edit
           </div>
@@ -191,48 +212,43 @@ function NewPost() {
         </div>
         <div style={{ marginLeft: '20px' }}>
           <Chip
-            icon={<Domain />}
-            clickable
-            size="small"
-            color="info"
-            label="General"
-            variant={type === 'General' ? 'filled' : 'outlined'}
-            onClick={() => setType('General')}
-            style={{
-              color: 'black',
-              marginRight: '10px',
-              paddingLeft: '10px',
-              paddingRight: '10px',
-              marginBottom: '5px',
-              boxSizing: 'border-box',
-              borderRadius: '16px',
-            }}
-          />
-          <Chip
-            icon={<Event />}
-            clickable
-            size="small"
-            color="secondary"
-            label="News"
-            variant={type === 'News' ? 'filled' : 'outlined'}
-            onClick={() => setType('News')}
-            style={{
-              color: 'black',
-              marginRight: '10px',
-              paddingLeft: '10px',
-              paddingRight: '10px',
-              marginBottom: '5px',
-              boxSizing: 'border-box',
-              borderRadius: '16px',
-            }}
-          />
-          <Chip
-            icon={<LunchDining />}
             size="small"
             color="success"
-            label="Event"
-            variant={type === 'Event' ? 'filled' : 'outlined'}
-            onClick={() => setType('Event')}
+            label="Wellbeing"
+            variant={wellbeing ? 'filled' : 'outlined'}
+            onClick={() => setWellbeing(!wellbeing)}
+            style={{
+              color: 'black',
+              marginRight: '10px',
+              paddingLeft: '10px',
+              paddingRight: '10px',
+              marginBottom: '5px',
+              boxSizing: 'border-box',
+              borderRadius: '16px',
+            }}
+          />
+          <Chip
+            size="small"
+            color="success"
+            label="Music"
+            variant={music ? 'filled' : 'outlined'}
+            onClick={() => setMusic(!music)}
+            style={{
+              color: 'black',
+              marginRight: '10px',
+              paddingLeft: '10px',
+              paddingRight: '10px',
+              marginBottom: '5px',
+              boxSizing: 'border-box',
+              borderRadius: '16px',
+            }}
+          />
+          <Chip
+            size="small"
+            color="success"
+            label="Food"
+            variant={food ? 'filled' : 'outlined'}
+            onClick={() => setFood(!food)}
             style={{
               color: 'black',
               marginRight: '10px',

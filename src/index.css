@@ -3,6 +3,11 @@
   src: url('./fonts/DINPro.ttf');
 }
 
+@font-face {
+  font-family: 'Tiempos';
+  src: url('./fonts/Tiempos.otf');
+}
+
 body {
   margin: 0;
   font-family: DINPro;
