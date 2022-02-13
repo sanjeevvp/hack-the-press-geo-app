@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Terrace App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -27,20 +27,13 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Made at HackThePress
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This project was made at the [HackThePress 2022 Hackathon](https://www.hackthepress.org/2022-hackathon/) in London.
+The event and development was sponsored by:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+| [ClearSky](https://www.clearskypublishing.co.uk/)                                                                                                                                                        | [SocialSpider](http://socialspider.com/)                                                                                                                    | [Newspeak House](https://newspeak.house/)                                                                                                 |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://images.squarespace-cdn.com/content/v1/61767aada73f35496b76441e/3aa0a049-7dab-4a5b-ba27-0c6fd1a36d9b/ClearSkyLogoTransparent-07.png?format=1500w" alt="ClearSky" style="width:200px;"/> | <img src="https://res.cloudinary.com/gived/image/upload/v1624480303/WFE_Logomark_Cropped_vkx4rw.svg" height="100px" alt="Caliu Logo" style="width:200px;"/> | <img src="https://pbs.twimg.com/profile_images/1465338920401608714/rc5GDPgc_400x400.jpg" alt="Newspeak House Logo" style="width:100px;"/> |

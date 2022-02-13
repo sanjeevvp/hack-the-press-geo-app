@@ -1,15 +1,16 @@
-import React from 'react';
 import './ButtonFooter.css';
 
-import HomeIcon from '@mui/icons-material/Home';
 import AddIcon from '@mui/icons-material/Add';
-import MapIcon from '@mui/icons-material/Map';
 import { Fab } from '@mui/material';
+import HomeIcon from '@mui/icons-material/Home';
+import MapIcon from '@mui/icons-material/Map';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ButtonFooter = () => {
   const navigate = useNavigate();
   const openNewPost = () => navigate('/post');
+  const openMap = () => navigate('/map');
   const openHome = () => navigate('/');
 
   return (
@@ -27,7 +28,7 @@ const ButtonFooter = () => {
         </Fab>
       </div>
       <div className="MapButtonContainer">
-        <MapIcon className="MapButton" />
+        <MapIcon className="MapButton" onClick={openMap} />
       </div>
     </footer>
   );
