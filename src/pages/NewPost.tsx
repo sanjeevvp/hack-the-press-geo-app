@@ -49,8 +49,16 @@ function NewPost() {
     },
   });
   const addNewPost = () => {
-    const tags = [type];
-
+    const tags = [];
+    if (wellbeing) {
+      tags.push('wellbeing');
+    }
+    if (music) {
+      tags.push('music');
+    }
+    if (food) {
+      tags.push('food');
+    }
     publishPostWithGeoData({
       id: 'id' + Math.random() * 100,
       name: 'Sanjeev',
@@ -64,7 +72,6 @@ function NewPost() {
 
   if (locations.length === 0) {
     getGeocoding().then((data: any) => {
-      console.log(data);
       setLocation(data[0]);
       setLocations(data.slice(0, 6));
     });
