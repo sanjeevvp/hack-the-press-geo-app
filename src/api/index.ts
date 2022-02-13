@@ -21,6 +21,7 @@ export async function getPosts(filters: FilterData) {
 
   const queryString = Object.entries(query)
     .filter(([key]) => key !== 'update') // update function needs to be skipped
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .filter(([key, value]) =>
       Array.isArray(value) ? value.length > 0 : !!value
     )

@@ -13,6 +13,7 @@ const PostDetail = () => {
   const { postId } = useParams();
 
   const [post, setPost] = useState<IPost | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [hasError, setHasError] = useState<boolean>(false);
 
   const loadPost = async () => {

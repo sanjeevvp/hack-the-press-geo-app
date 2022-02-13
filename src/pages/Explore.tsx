@@ -11,6 +11,7 @@ import { useAppContext } from '../contexts/app.context';
 
 const Explore = () => {
   const [posts, setPosts] = useState<IPost[] | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [hasError, setHasError] = useState<boolean>(false);
 
   const filters = useAppContext();
