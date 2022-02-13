@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
 import './Filter.css';
 
-import Header from '../components/filter/Header';
 import { Chip, Slider } from '@mui/material';
+import React, { useState } from 'react';
+
 import { Domain } from '@mui/icons-material';
+import Header from '../components/filter/Header';
 import PlaceIcon from '@mui/icons-material/Place';
 
 const Filter = () => {
@@ -25,6 +26,7 @@ const Filter = () => {
           step={100}
           min={0}
           max={5000}
+          onChange={(e, v) => setRadius(v as number)}
         />
       </div>
       <div className="FilterCategoryContainer">

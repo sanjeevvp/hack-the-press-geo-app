@@ -1,7 +1,7 @@
+import { FilterData } from '../types';
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import useLocalStorage from 'react-use-localstorage';
-import { FilterData } from '../types';
 
 export const AppContext = React.createContext({
   name: '',

@@ -1,14 +1,14 @@
-import React from 'react';
 import './PostHeader.css';
-import { IPost } from '../../types';
 
-import EventIcon from '@mui/icons-material/Event';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PersonIcon from '@mui/icons-material/Person';
-import ShareIcon from '@mui/icons-material/Share';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import { Avatar, Chip } from '@mui/material';
+import { Chip } from '@mui/material';
 import { Domain } from '@mui/icons-material';
+import EventIcon from '@mui/icons-material/Event';
+import { IPost } from '../../types';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import PersonIcon from '@mui/icons-material/Person';
+import React from 'react';
+import ShareIcon from '@mui/icons-material/Share';
 
 const PostHeader: React.FC<{ post: IPost }> = ({ post }) => {
   return (
