@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react';
 import './Explore.css';
 
-import AddIcon from '@mui/icons-material/Add';
-import { Fab } from '@mui/material';
-import Header from '../components/explore/Header';
-import Post from '../components/explore/Post';
+import React, { useEffect, useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
-import { IPost } from '../types';
-import { getPosts } from '../api';
 import ButtonFooter from '../components/common/ButtonFooter';
+import Header from '../components/explore/Header';
+import { IPost } from '../types';
+import Post from '../components/explore/Post';
+import { getPosts } from '../api';
 
 const Explore = () => {
   const [posts, setPosts] = useState<IPost[] | null>(null);

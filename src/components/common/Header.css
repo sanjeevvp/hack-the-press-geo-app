@@ -1,13 +1,12 @@
 .PostDetailHeaderContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 36px 24px;
-    color: #555555;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 10px 10px 10px;
+  color: #555555;
 }
 
 .BackContainer {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }

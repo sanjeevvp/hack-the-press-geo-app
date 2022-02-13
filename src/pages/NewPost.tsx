@@ -1,170 +1,287 @@
-import { Button, Chip, TextField } from '@mui/material';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  Domain,
-  Event,
-  LunchDining,
-  Nightlife,
-  Place,
-} from '@mui/icons-material';
+  Button,
+  Chip,
+  TextField,
+  ThemeProvider,
+  createTheme,
+} from '@mui/material';
+import { Domain, Event, LunchDining, Place } from '@mui/icons-material';
 import React, { useState } from 'react';
+import { getGeocoding, publishPostWithGeoData } from '../api';
 
-import { publishPostWithGeoData } from '../api';
 import Header from '../components/common/Header';
 
 function NewPost() {
-  const [title, setTitle] = useState('');
-  const [news, setNews] = useState(false);
-  const [event, setEvent] = useState(false);
-  const [lunch, setLunch] = useState(false);
-  const [music, setMusic] = useState(false);
+  const [title, setTitle] = useState('Post something here ...');
+  const [editing, setEditing] = useState(false);
+  const [location, setLocation] = useState('Suggested location ...');
+  const [locations, setLocations] = useState([] as string[]);
+  const [type, setType] = useState('Event');
   const [text, setText] = useState('');
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#F8A82F',
+        dark: '#F8A82F',
+      },
+      success: {
+        main: '#9BF8D6',
+        dark: '#9BF8D6',
+      },
+      info: {
+        main: '#FD93FF',
+        dark: '#FD93FF',
+      },
+      secondary: {
+        main: '#D9B4FF',
+        dark: '#D9B4FF',
+      },
+    },
+  });
   const addNewPost = () => {
-    const tags = [];
-    if (news) {
-      tags.push('news');
-    }
-    if (event) {
-      tags.push('event');
-    }
-    if (lunch) {
-      tags.push('lunch');
-    }
-    if (music) {
-      tags.push('music');
-    }
+    const tags = [type];
 
     publishPostWithGeoData({
       id: 'id' + Math.random() * 100,
       name: 'Sanjeev',
       title,
-      locationName: 'Newspeak House',
-      postingType: 'General',
+      locationName: location,
+      postingType: type,
       tags,
       text,
     });
   };
-  return (
-    <div style={{ padding: '15px' }}>
-      <Header />
-      <div>
-        <h1 style={{ marginLeft: '20px' }}>Post something</h1>
-      </div>
 
-      <div
-        style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          marginLeft: '20px',
-        }}
-      >
-        <div>
-          <Place />
+  if (locations.length === 0) {
+    getGeocoding().then((data: any) => {
+      console.log(data);
+      setLocation(data[0]);
+      setLocations(data);
+    });
+  }
+  return (
+    <ThemeProvider theme={theme}>
+      <div style={{ padding: '15px' }}>
+        <Header />
+        <div style={{ marginLeft: '20px' }}>
+          <h2
+            contentEditable="true"
+            suppressContentEditableWarning={true}
+            style={{
+              color: title.startsWith('Post') ? '#C6C6C6' : 'black',
+              display: editing ? 'none' : 'block',
+              fontSize: '24px',
+            }}
+            onClick={() => setEditing(true)}
+          >
+            {title}
+          </h2>
+          <TextField
+            id="outlined-basic"
+            fullWidth
+            label=""
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            style={{ display: editing ? 'block' : 'none' }}
+            variant="outlined"
+            onMouseLeave={() => setEditing(false)}
+          />
         </div>
-        <p style={{ marginLeft: '10px', fontWeight: '700', fontSize: '16px' }}>
-          Newspeak House
-        </p>
-      </div>
-      <div style={{ marginLeft: '20px', paddingRight: '20px' }}>
-        <h4>Give your post a title</h4>
-        <TextField
-          size="small"
-          id="outlined-basic"
-          fullWidth
-          label=""
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          variant="outlined"
-        />
-      </div>
-      <div>
-        <h4 style={{ marginLeft: '20px' }}>What are you posting about?</h4>
-      </div>
-      <div style={{ marginLeft: '20px' }}>
-        <Chip
-          icon={<Domain />}
-          clickable
-          size="small"
-          color="success"
-          label="News"
-          variant={news ? 'filled' : 'outlined'}
-          onClick={() => setNews(!news)}
+        <div
           style={{
-            marginRight: '10px',
-            paddingLeft: '10px',
-            paddingRight: '10px',
-            marginBottom: '5px',
+            marginLeft: '20px',
+            display: 'inline-flex',
+            alignItems: 'center',
           }}
-        />
-        <Chip
-          icon={<Event />}
-          clickable
-          size="small"
-          color="success"
-          label="Event"
-          variant={event ? 'filled' : 'outlined'}
-          onClick={() => setEvent(!event)}
-          style={{
-            marginRight: '10px',
-            paddingLeft: '10px',
-            paddingRight: '10px',
-            marginBottom: '5px',
-          }}
-        />
-        <Chip
-          icon={<LunchDining />}
-          clickable
-          size="small"
-          color="success"
-          label="Lunch"
-          variant={lunch ? 'filled' : 'outlined'}
-          onClick={() => setLunch(!lunch)}
-          style={{
-            marginRight: '10px',
-            paddingLeft: '10px',
-            paddingRight: '10px',
-            marginBottom: '5px',
-          }}
-        />
-        <Chip
-          icon={<Nightlife />}
-          clickable
-          size="small"
-          color="success"
-          label="Music"
-          variant={music ? 'filled' : 'outlined'}
-          onClick={() => setMusic(!music)}
-          style={{
-            marginRight: '10px',
-            paddingLeft: '10px',
-            paddingRight: '10px',
-            marginBottom: '5px',
-          }}
-        />
-      </div>
-      <div style={{ marginLeft: '20px', paddingRight: '20px' }}>
-        <h4>Tell us about this location</h4>
-        <TextField
-          minRows="4"
-          fullWidth
-          multiline
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Tell us whats going on"
-        />
-      </div>
-      <div
-        style={{ paddingLeft: '20px', paddingRight: '20px', marginTop: '20px' }}
-      >
-        <Button
-          fullWidth
-          variant="contained"
-          color="success"
-          onClick={addNewPost}
         >
-          Post
-        </Button>
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+            }}
+          >
+            <div>
+              <Place />
+            </div>
+            <p
+              style={{
+                marginLeft: '10px',
+                fontWeight: '700',
+                fontSize: '24px',
+              }}
+            >
+              {location}
+            </p>
+          </div>
+          <div
+            style={{
+              color: '#F8A82F',
+              textDecoration: 'underline',
+              position: 'absolute',
+              right: '35px',
+            }}
+          >
+            Edit
+          </div>
+        </div>
+        <div>
+          <h4 style={{ marginLeft: '20px' }}>What are you posting about?</h4>
+        </div>
+        <div style={{ marginLeft: '20px' }}>
+          <Chip
+            icon={<Domain />}
+            clickable
+            size="small"
+            color="info"
+            label="General"
+            variant={type === 'General' ? 'filled' : 'outlined'}
+            onClick={() => setType('General')}
+            style={{
+              color: 'black',
+              marginRight: '10px',
+              paddingLeft: '10px',
+              paddingRight: '10px',
+              marginBottom: '5px',
+              boxSizing: 'border-box',
+              borderRadius: '16px',
+            }}
+          />
+          <Chip
+            icon={<Event />}
+            clickable
+            size="small"
+            color="secondary"
+            label="News"
+            variant={type === 'News' ? 'filled' : 'outlined'}
+            onClick={() => setType('News')}
+            style={{
+              color: 'black',
+              marginRight: '10px',
+              paddingLeft: '10px',
+              paddingRight: '10px',
+              marginBottom: '5px',
+              boxSizing: 'border-box',
+              borderRadius: '16px',
+            }}
+          />
+          <Chip
+            icon={<LunchDining />}
+            size="small"
+            color="success"
+            label="Event"
+            variant={type === 'Event' ? 'filled' : 'outlined'}
+            onClick={() => setType('Event')}
+            style={{
+              color: 'black',
+              marginRight: '10px',
+              paddingLeft: '10px',
+              paddingRight: '10px',
+              marginBottom: '5px',
+              boxSizing: 'border-box',
+              borderRadius: '16px',
+            }}
+          />
+        </div>
+        <div>
+          <h4 style={{ marginLeft: '20px' }}>
+            Add tags{' '}
+            <span style={{ color: '#C8C8C8', fontSize: '12px' }}>optional</span>
+          </h4>
+        </div>
+        <div style={{ marginLeft: '20px' }}>
+          <Chip
+            icon={<Domain />}
+            clickable
+            size="small"
+            color="info"
+            label="General"
+            variant={type === 'General' ? 'filled' : 'outlined'}
+            onClick={() => setType('General')}
+            style={{
+              color: 'black',
+              marginRight: '10px',
+              paddingLeft: '10px',
+              paddingRight: '10px',
+              marginBottom: '5px',
+              boxSizing: 'border-box',
+              borderRadius: '16px',
+            }}
+          />
+          <Chip
+            icon={<Event />}
+            clickable
+            size="small"
+            color="secondary"
+            label="News"
+            variant={type === 'News' ? 'filled' : 'outlined'}
+            onClick={() => setType('News')}
+            style={{
+              color: 'black',
+              marginRight: '10px',
+              paddingLeft: '10px',
+              paddingRight: '10px',
+              marginBottom: '5px',
+              boxSizing: 'border-box',
+              borderRadius: '16px',
+            }}
+          />
+          <Chip
+            icon={<LunchDining />}
+            size="small"
+            color="success"
+            label="Event"
+            variant={type === 'Event' ? 'filled' : 'outlined'}
+            onClick={() => setType('Event')}
+            style={{
+              color: 'black',
+              marginRight: '10px',
+              paddingLeft: '10px',
+              paddingRight: '10px',
+              marginBottom: '5px',
+              boxSizing: 'border-box',
+              borderRadius: '16px',
+            }}
+          />
+        </div>
+        <div style={{ marginLeft: '20px', paddingRight: '20px' }}>
+          <h4>Tell us about this location</h4>
+          <TextField
+            minRows="4"
+            fullWidth
+            multiline
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder="Tell us whats going on"
+          />
+        </div>
+        <div
+          style={{
+            position: 'absolute',
+            bottom: '30px',
+            width: '90%',
+            justifyItems: 'center',
+          }}
+        >
+          <div style={{ width: '80%', margin: 'auto' }}>
+            <Button
+              fullWidth
+              variant="contained"
+              color="primary"
+              onClick={addNewPost}
+              style={{
+                borderRadius: '65px',
+                height: '50px',
+                color: 'white',
+                boxShadow: 'none',
+              }}
+            >
+              Post
+            </Button>
+          </div>
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 

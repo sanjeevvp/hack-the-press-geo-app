@@ -1,12 +1,12 @@
 import './App.css';
-import React from 'react';
 
 import { Route, Routes } from 'react-router-dom';
 
 import Explore from './pages/Explore';
+import Filter from './pages/Filter';
 import NewPost from './pages/NewPost';
 import PostDetail from './pages/PostDetail';
-import Filter from './pages/Filter';
+import React from 'react';
 
 const App = () => {
   return (

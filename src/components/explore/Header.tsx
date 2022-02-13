@@ -1,5 +1,6 @@
-import React from 'react';
 import './Header.css';
+
+import React from 'react';
 import TuneIcon from '@mui/icons-material/Tune';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +10,9 @@ const Header = () => {
 
   return (
     <header className="ExploreHeaderContainer">
-      <h1>Shoreditch, London</h1>
+      <h1 style={{ fontSize: '24px', fontWeight: '900' }}>
+        Shoreditch, London
+      </h1>
       <TuneIcon onClick={openFilter} />
     </header>
   );
