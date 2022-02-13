@@ -8,6 +8,7 @@ export interface IPost {
   tags: string[];
   lat?: string;
   long?: string;
+  createdAt?: string;
 }
 
 export interface FilterData {

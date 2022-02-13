@@ -9,6 +9,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PersonIcon from '@mui/icons-material/Person';
 import React from 'react';
 import ShareIcon from '@mui/icons-material/Share';
+import moment from 'moment';
 
 const PostHeader: React.FC<{ post: IPost }> = ({ post }) => {
   const sharePost = async () => {
@@ -17,6 +18,7 @@ const PostHeader: React.FC<{ post: IPost }> = ({ post }) => {
       url: `${window.location.host}/post/${post.id}`,
     });
   };
+
   return (
     <header className="PostHeaderContainer">
       <div className="UpperContainer">
@@ -68,7 +70,7 @@ const PostHeader: React.FC<{ post: IPost }> = ({ post }) => {
         />
         <div className="NameContainer">
           <p className="PostAuthorText">{post?.name}</p>
-          <p className="CreatedAtText">1 hr ago</p>
+          <p className="CreatedAtText">{moment(post?.createdAt).fromNow()}</p>
         </div>
       </div>
     </header>
