@@ -21,7 +21,7 @@ const Filter = () => {
         <Slider
           className="RadiusSlider"
           aria-label="radius"
-          value={radius}
+          value={Number(radius)}
           step={100}
           min={0}
           max={5000}
