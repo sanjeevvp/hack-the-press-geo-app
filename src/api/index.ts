@@ -2,18 +2,16 @@
 import axios from 'axios';
 import { IPost } from '../types';
 
+const BASE_URL = 'http://18.170.119.206:5000';
+
 export async function getPosts() {
-  const response = await axios.get(
-    'https://60ba-86-130-236-97.ngrok.io/api/posts'
-  );
+  const response = await axios.get(`${BASE_URL}/api/posts`);
   console.log(response.data);
   return response.data;
 }
 
 export async function getPost(postId: string) {
-  const response = await axios.get(
-    `https://60ba-86-130-236-97.ngrok.io/api/posts/${postId}`
-  );
+  const response = await axios.get(`${BASE_URL}/api/posts/${postId}`);
   console.log(response);
   return response.data;
 }
@@ -24,6 +22,6 @@ export async function publishPostWithGeoData(data: IPost) {
     data.long = coord.coords.longitude as any;
     data = data as IPost;
     console.log(data);
-    await axios.post('https://60ba-86-130-236-97.ngrok.io/api/posts', data);
+    await axios.post(`${BASE_URL}/api/posts`, data);
   });
 }
