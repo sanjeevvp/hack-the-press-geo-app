@@ -48,7 +48,7 @@ function NewPost() {
       },
     },
   });
-  const addNewPost = () => {
+  const addNewPost = async () => {
     const tags = [];
     if (wellbeing) {
       tags.push('wellbeing');
@@ -59,7 +59,7 @@ function NewPost() {
     if (food) {
       tags.push('food');
     }
-    publishPostWithGeoData({
+    await publishPostWithGeoData({
       id: 'id' + Math.random() * 100,
       name: 'Sanjeev',
       title,

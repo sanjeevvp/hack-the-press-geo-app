@@ -1,9 +1,9 @@
-import React from 'react';
 import './Post.css';
-import { IPost } from '../../types';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { IPost } from '../../types';
 import PostHeader from '../common/PostHeader';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Post: React.FC<{ post: IPost }> = ({ post }) => {

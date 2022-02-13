@@ -11,6 +11,12 @@ import React from 'react';
 import ShareIcon from '@mui/icons-material/Share';
 
 const PostHeader: React.FC<{ post: IPost }> = ({ post }) => {
+  const sharePost = async () => {
+    await navigator.share({
+      title: post.name,
+      url: `${window.location.host}/post/${post.id}`,
+    });
+  };
   return (
     <header className="PostHeaderContainer">
       <div className="UpperContainer">
@@ -34,7 +40,7 @@ const PostHeader: React.FC<{ post: IPost }> = ({ post }) => {
         </div>
         <div className="RightContainer">
           <div className="IconContainer">
-            <ShareIcon />
+            <ShareIcon onClick={sharePost} />
             <MoreHorizIcon className="MoreHorizIcon" />
           </div>
           <div className="ChipContainer">
