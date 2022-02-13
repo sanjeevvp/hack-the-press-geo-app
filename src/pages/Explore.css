@@ -2,3 +2,7 @@
     min-height: 100vh;
     padding: 93px 24px;
 }
+
+.PostListContainer {
+    overflow-x: scroll;
+}

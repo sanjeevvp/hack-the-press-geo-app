@@ -11,9 +11,9 @@ const Post: React.FC<{ post: IPost }> = ({ post }) => {
   const openPostDetail = () => navigate(`/post/${post?.id}`);
 
   return (
-    <article>
+    <article className="PostCardContainer">
       <PostHeader post={post} />
-      <div>
+      <div className="PostCardTextContainer">
         <p>{post.text}</p>
       </div>
       <div className="ExpandIconContainer">

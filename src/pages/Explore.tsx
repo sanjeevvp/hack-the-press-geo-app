@@ -32,9 +32,11 @@ const Explore = () => {
   return (
     <div className="ExploreContainer">
       <Header />
-      {posts?.map((post: IPost, index: number) => (
-        <Post post={post} key={index} />
-      ))}
+      <div className="PostListContainer">
+        {posts?.map((post: IPost, index: number) => (
+          <Post post={post} key={index} />
+        ))}
+      </div>
       <ButtonFooter />
     </div>
   );
