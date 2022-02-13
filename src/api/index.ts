@@ -1,8 +1,9 @@
 import { FilterData, IPost } from '../types';
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from 'axios';
 
-const BASE_URL = 'http://18.170.119.206:5000';
+const BASE_URL = 'https://d4a2-86-130-236-97.ngrok.io';
 
 export async function getCoordinates() {
   return new Promise(function (resolve, reject) {
